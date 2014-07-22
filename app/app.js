@@ -17,8 +17,9 @@ udp.on('message', function(msg, rinfo) {
 	//console.log(msg.toString('utf-8'));
 	httpParser.execute(msg, 0, msg.length);
 });
-udp.bind(1900);
-udp.addMembership('239.255.255.250');
+udp.bind(1900, function() {
+	udp.addMembership('239.255.255.250');
+});
 
 
 /*
